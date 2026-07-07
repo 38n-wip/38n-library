@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>感想を送る | 38n</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #F8F7F4;
+    --text: #1C1C1C;
+    --sub: #6B6B6B;
+    --accent: #4A7C7E;
+    --border: #DDDBD6;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+
+  header {
+    padding: 48px 48px 0;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  header a {
+    font-size: 0.72rem;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.15em;
+  }
+
+  main {
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 40px 48px 80px;
+  }
+
+  h1 {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 300;
+    font-size: 1.3rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 10px;
+  }
+
+  .work-name {
+    font-size: 0.8rem;
+    color: var(--sub);
+    letter-spacing: 0.05em;
+    margin-bottom: 32px;
+  }
+
+  form {
+    margin-top: 24px;
+  }
+
+  textarea,
+  input[type="text"] {
+    display: block;
+    width: 100%;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    font-size: 0.9rem;
+    padding: 14px;
+    resize: vertical;
+  }
+
+  textarea:focus,
+  input[type="text"]:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  .field {
+    margin-bottom: 18px;
+  }
+
+  .field label {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--sub);
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+
+  button {
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    padding: 12px 28px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    margin-top: 8px;
+  }
+
+  button:hover {
+    background: var(--accent);
+    color: var(--bg);
+  }
+
+  @media (max-width: 600px) {
+    header, main {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html">← LIBRARY</a>
+</header>
+
+<main>
+  <h1>感想を送る</h1>
+  <p class="work-name" id="workName"></p>
+
+  <form name="feedback" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="thanks.html">
+    <input type="hidden" name="form-name" value="feedback">
+    <p style="display:none;">
+      <label>入力しないでください: <input name="bot-field"></label>
+    </p>
+    <input type="hidden" name="work" id="workField" value="">
+
+    <div class="field">
+      <label for="message">感想</label>
+      <textarea id="message" name="message" rows="6" placeholder="感想をお聞かせください" required></textarea>
+    </div>
+
+    <div class="field">
+      <label for="name">お名前(任意)</label>
+      <input type="text" id="name" name="name" placeholder="お名前">
+    </div>
+
+    <button type="submit">送信</button>
+  </form>
+</main>
+
+<script>
+  var params = new URLSearchParams(window.location.search);
+  var work = params.get('work');
+  if (work) {
+    document.getElementById('workName').textContent = '「' + work + '」について';
+    document.getElementById('workField').value = work;
+  }
+</script>
+
+</body>
+</html>
