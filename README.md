@@ -3,128 +3,246 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex,nofollow">
-
+<meta name="robots" content="noindex, nofollow">
 <title>38n</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="style.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+  :root {
+    --bg: #F8F7F4;
+    --text: #1C1C1C;
+    --sub: #6B6B6B;
+    --accent: #4A7C7E;
+    --border: #DDDBD6;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+
+  header {
+    padding: 64px 48px 0;
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    min-height: 24px;
+  }
+
+  /* プロフィール */
+  .profile {
+    max-width: 720px;
+    margin: 72px auto 0;
+    padding: 0 48px;
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+  }
+
+  .profile-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--border);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--sub);
+    font-size: 0.65rem;
+    overflow: hidden;
+  }
+
+  .profile-icon img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+
+  .profile-text h1 {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 300;
+    font-size: 1.05rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 10px;
+  }
+
+  .profile-text p {
+    font-size: 0.82rem;
+    color: var(--sub);
+    line-height: 1.9;
+  }
+
+  /* 区切り */
+  .divider {
+    max-width: 720px;
+    margin: 56px auto 0;
+    padding: 0 48px;
+    border: none;
+    border-top: 1px solid var(--border);
+  }
+
+  .section-label {
+    max-width: 720px;
+    margin: 40px auto 0;
+    padding: 0 48px;
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    color: var(--accent);
+  }
+
+  /* 作品リスト */
+  .works {
+    max-width: 720px;
+    margin: 24px auto 0;
+    padding: 0 48px;
+  }
+
+  .work-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .work-card:first-child {
+    border-top: 1px solid var(--border);
+  }
+
+  .work-title {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 300;
+    font-size: 1.05rem;
+    letter-spacing: 0.12em;
+    margin-bottom: 6px;
+    transition: color 0.2s;
+  }
+
+  .work-card:hover .work-title {
+    color: var(--accent);
+  }
+
+  .work-meta {
+    font-size: 0.72rem;
+    color: var(--sub);
+    letter-spacing: 0.05em;
+  }
+
+  footer {
+    max-width: 720px;
+    margin: 80px auto 0;
+    padding: 36px 48px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  footer a {
+    font-size: 0.72rem;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.15em;
+  }
+
+  @media (max-width: 600px) {
+    header,
+    .profile,
+    .section-label,
+    .works,
+    footer {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    .profile {
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
+
+</style>
 </head>
 
 <body>
 
-<main>
+<header>
+</header>
 
 <section class="profile">
 
-    <div class="profile-icon">
-        <!-- 後で画像に差し替え -->
-        <img src="images/icon.png" alt="38n">
-    </div>
+  <div class="profile-icon">
+    <!-- 後で画像に変更 -->
+    icon
+    <!--
+    <img src="images/icon.png" alt="38n">
+    -->
+  </div>
 
-    <div class="profile-text">
+  <div class="profile-text">
 
-        <p class="section-title">
-            Profile
-        </p>
+    <h1>Profile</h1>
 
-        <h1>
-            38n
-        </h1>
+    <p style="margin-bottom:14px;color:#1C1C1C;font-family:'Noto Serif JP',serif;font-size:1rem;">
+      38n
+    </p>
 
-        <p class="intro">
-            人生や、<br>
-            言葉にならなかった時間を書いています。
-        </p>
+    <p>
+      人生や、<br>
+      言葉にならなかった時間を書いています。
+    </p>
 
-    </div>
+  </div>
 
 </section>
 
-<hr>
+<hr class="divider">
 
-<section class="library">
+<p class="section-label">LIBRARY</p>
 
-    <p class="section-title">
-        Library
-    </p>
+<section class="works">
 
-    <a class="work" href="works/nomikomenai.html">
+  <a href="works/nomikomenai.html" class="work-card">
+    <div class="work-title">のみこめない</div>
+    <div class="work-meta">2026</div>
+  </a>
 
-        <div class="title">
-            のみこめない
-        </div>
+  <a href="works/comet/index.html" class="work-card">
+    <div class="work-title">彗星のあとに</div>
+    <div class="work-meta">2026</div>
+  </a>
 
-        <div class="date">
-            2026
-        </div>
+  <a href="works/bookshelf/index.html" class="work-card">
+    <div class="work-title">書架のひと</div>
+    <div class="work-meta">Coming Soon</div>
+  </a>
 
-    </a>
+  <a href="works/paranoid.html" class="work-card">
+    <div class="work-title">パラノイドレポート</div>
+    <div class="work-meta">Coming Soon</div>
+  </a>
 
-    <a class="work" href="works/comet/index.html">
-
-        <div class="title">
-            彗星のあとに
-        </div>
-
-        <div class="date">
-            2026
-        </div>
-
-    </a>
-
-    <a class="work" href="works/bookshelf/index.html">
-
-        <div class="title">
-            書架のひと
-        </div>
-
-        <div class="date">
-            Coming Soon
-        </div>
-
-    </a>
-
-    <a class="work" href="works/paranoid.html">
-
-        <div class="title">
-            パラノイドレポート
-        </div>
-
-        <div class="date">
-            Coming Soon
-        </div>
-
-    </a>
-
-    <a class="work" href="works/fragrance.html">
-
-        <div class="title">
-            名前のない香り
-        </div>
-
-        <div class="date">
-            Coming Soon
-        </div>
-
-    </a>
+  <a href="works/fragrance.html" class="work-card">
+    <div class="work-title">名前のない香り</div>
+    <div class="work-meta">Coming Soon</div>
+  </a>
 
 </section>
 
 <footer>
-
-    <a href="mailto:xxxxx@example.com">
-        感想を送る
-    </a>
-
+  <a href="mailto:xxxxx@example.com">感想を送る →</a>
 </footer>
-
-</main>
 
 </body>
 </html>
